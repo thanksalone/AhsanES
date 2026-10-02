@@ -1148,7 +1148,11 @@ h1, h2, h3, h4, h5, h6 {
         height: 75px;
     }
 
-    .floating-contact-wrapper.right { right: 15px; }
+    .floating-contact-wrapper.right { 
+        position: fixed;
+        right: 10px;
+        bottom: 10px; 
+    }
     .floating-contact-wrapper.left  { left: 15px; }
 
     .floating-contact-btn {
