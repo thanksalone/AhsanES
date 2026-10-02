@@ -990,7 +990,13 @@ h1, h2, h3, h4, h5, h6 {
     gap: 10px;
 }
 
-.floating-contact-wrapper.right { right: 30px; }
+.floating-contact-wrapper.right { 
+        position: fixed;
+        right: 10px;
+        bottom: 20px;
+     }
+
+
 .floating-contact-wrapper.left  { left: 30px; }
 
 .floating-contact-btn {
