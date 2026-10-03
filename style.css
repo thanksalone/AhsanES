@@ -1117,6 +1117,9 @@ h1, h2, h3, h4, h5, h6 {
    RESPONSIVE — MOBILE (≤767px)
    ========================================================= */
 @media (max-width: 767px) {
+   *, *::before, *::after {
+   width:100%;
+}
     .site-footer {
         padding-bottom: 100px; /* Extra bottom padding so floating buttons don't obscure footer content */
     }
