@@ -308,6 +308,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 6px;
     outline: none;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .banner-form input::placeholder {
@@ -345,6 +346,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 8px;
+    box-sizing: border-box;
 }
 
 .banner-form button[type="submit"]:hover {
@@ -414,9 +416,7 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================= */
 .packages-section {
     padding: 100px 0;
-    /* background: linear-gradient(135deg, #f8f5ef 0%, #fdfbf7 100%);
-     */
-     background: linear-gradient(180deg, #9b0000 0%, #df0d0d 50%, #23334b 100%);;
+    background: linear-gradient(180deg, #9b0000 0%, #df0d0d 50%, #23334b 100%);
 }
 
 .packages-section h2 {
@@ -836,14 +836,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =========================================================
-   FOOTER
+   FOOTER SECTION
    ========================================================= */
 .site-footer {
     background-color: #0f0618;
     color: #ffffff;
     padding: 70px 0 25px;
     width: 100%;
-    overflow: hidden; /* Prevents horizontal scroll leaks */
+    position: relative;
+    overflow: hidden;
 }
 
 .footer-columns {
@@ -852,6 +853,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 40px;
     margin-bottom: 50px;
     width: 100%;
+    align-items: start;
 }
 
 .footer-logo img {
@@ -870,7 +872,7 @@ h1, h2, h3, h4, h5, h6 {
     color: rgba(255, 255, 255, 0.75);
     margin-bottom: 12px;
     line-height: 1.5;
-    word-break: break-word; /* Prevents long emails/URLs from overflowing */
+    word-break: break-word;
 }
 
 .footer-contact a {
@@ -920,7 +922,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =========================================================
-   FOOTER FORM (CONTAINED WITHIN MOBILE VIEWPORT)
+   FOOTER FORM
    ========================================================= */
 .footer-form {
     background-color: rgba(255, 255, 255, 0.04);
@@ -929,7 +931,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 25px 20px;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 80px; /* Space to prevent floating action buttons from covering SUBMIT */
+}
+
+.footer-form h4 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 .footer-form input[type="text"],
@@ -947,7 +956,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 6px;
     margin-bottom: 12px;
     outline: none;
-    box-sizing: border-box; /* Prevents input overflow outside parent container */
+    box-sizing: border-box;
 }
 
 .footer-form button[type="submit"] {
@@ -994,15 +1003,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =========================================================
-   FLOATING BUTTONS (CLEAN CIRCULAR ICONS)
+   FLOATING ACTION BUTTONS
    ========================================================= */
 .floating-contact-wrapper {
     position: fixed;
     bottom: 20px;
-    z-index: 999;
+    z-index: 9999;
     display: flex;
     gap: 12px;
-    background: transparent !important; /* Removes any full-width bar background */
+    background: transparent !important;
     width: auto !important;
 }
 
@@ -1038,37 +1047,10 @@ h1, h2, h3, h4, h5, h6 {
 .floating-contact-btn.call {
     background-color: #BA954E;
 }
+
 .floating-contact-btn.call svg {
     width: 26px;
     height: 26px;
-}
-
-/* =========================================================
-   RESPONSIVE — MOBILE (≤767px)
-   ========================================================= */
-@media (max-width: 767px) {
-.site-footer {
-        padding-bottom: 100px; /* Extra room so footer content isn't covered */
-    }
-
-    .footer-form {
-        padding: 20px 15px;
-    }
-
-    .floating-contact-wrapper.left {
-        left: 15px;
-        bottom: 15px;
-    }
-
-    .floating-contact-wrapper.right {
-        right: 15px;
-        bottom: 15px;
-    }
-
-    .floating-contact-btn {
-        width: 44px;
-        height: 44px;
-    }
 }
 
 /* =========================================================
@@ -1135,6 +1117,10 @@ h1, h2, h3, h4, h5, h6 {
    RESPONSIVE — MOBILE (≤767px)
    ========================================================= */
 @media (max-width: 767px) {
+    .site-footer {
+        padding-bottom: 100px; /* Extra bottom padding so floating buttons don't obscure footer content */
+    }
+
     .lp-header .elementor-button .elementor-button-text {
         display: none;
     }
@@ -1179,6 +1165,10 @@ h1, h2, h3, h4, h5, h6 {
         gap: 35px;
     }
 
+    .footer-form {
+        padding: 20px 15px;
+    }
+
     .footer-logo img { max-width: 180px; }
 
     .carousel-slide {
@@ -1186,22 +1176,22 @@ h1, h2, h3, h4, h5, h6 {
         height: 75px;
     }
 
-    .floating-contact-wrapper.right { 
-        position: fixed;
-        right: 10px;
-        bottom: 10px; 
+    .floating-contact-wrapper {
+        bottom: 15px;
     }
-    .floating-contact-wrapper.left  { left: 15px; }
+
+    .floating-contact-wrapper.right { 
+        right: 15px;
+        left: auto;
+    }
+
+    .floating-contact-wrapper.left { 
+        left: 15px;
+        right: auto;
+    }
 
     .floating-contact-btn {
-        width: 48px;
-        height: 48px;
-    }
-
-    .floating-contact-wrapper {
-        bottom: 25px;
-        position: fixed;
-        right: 10px;
-        bottom: 20px;
+        width: 44px;
+        height: 44px;
     }
 }
