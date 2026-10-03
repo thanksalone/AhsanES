@@ -919,6 +919,9 @@ h1, h2, h3, h4, h5, h6 {
     filter: grayscale(0.2);
 }
 
+/* =========================================================
+   FOOTER FORM (CONTAINED WITHIN MOBILE VIEWPORT)
+   ========================================================= */
 .footer-form {
     background-color: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -926,13 +929,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 25px 20px;
     width: 100%;
     box-sizing: border-box;
-}
-
-.footer-form h4 {
-    color: #ffffff;
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 18px;
+    margin-bottom: 80px; /* Space to prevent floating action buttons from covering SUBMIT */
 }
 
 .footer-form input[type="text"],
@@ -940,7 +937,7 @@ h1, h2, h3, h4, h5, h6 {
 .footer-form input[type="tel"],
 .footer-form select {
     width: 100%;
-    height: 42px;
+    height: 44px;
     padding: 0 14px;
     font-size: 14px;
     font-family: inherit;
@@ -948,14 +945,14 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #ffffff;
     border: none;
     border-radius: 6px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     outline: none;
-    box-sizing: border-box; /* Crucial to prevent input overflow */
+    box-sizing: border-box; /* Prevents input overflow outside parent container */
 }
 
 .footer-form button[type="submit"] {
     width: 100%;
-    height: 44px;
+    height: 48px;
     font-size: 15px;
     font-weight: 600;
     background-color: #BA954E;
@@ -967,6 +964,9 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     box-sizing: border-box;
+    display: block;
+    position: relative;
+    z-index: 2;
 }
 
 .footer-form button[type="submit"]:hover {
@@ -994,54 +994,50 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =========================================================
-   FLOATING BUTTONS
+   FLOATING BUTTONS (CLEAN CIRCULAR ICONS)
    ========================================================= */
 .floating-contact-wrapper {
     position: fixed;
     bottom: 20px;
-    z-index: 1000;
+    z-index: 999;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    background: transparent !important; /* Removes any full-width bar background */
+    width: auto !important;
 }
 
-.floating-contact-wrapper.right { 
-    right: 20px; 
+.floating-contact-wrapper.right {
+    right: 20px;
+    left: auto;
 }
 
-.floating-contact-wrapper.left { 
-    left: 20px; 
+.floating-contact-wrapper.left {
+    left: 20px;
+    right: auto;
 }
 
 .floating-contact-btn {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s ease;
-    animation: pulse 2.5s infinite;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
 .floating-contact-btn:hover {
-    transform: scale(1.12);
+    transform: scale(1.1);
 }
 
 .floating-contact-btn.whatsapp {
     background-color: #25D366;
 }
 
-.floating-contact-btn.whatsapp img {
-    width: 60%;
-    height: 60%;
-}
-
 .floating-contact-btn.call {
     background-color: #BA954E;
 }
-
 .floating-contact-btn.call svg {
     width: 26px;
     height: 26px;
@@ -1051,36 +1047,27 @@ h1, h2, h3, h4, h5, h6 {
    RESPONSIVE — MOBILE (≤767px)
    ========================================================= */
 @media (max-width: 767px) {
-    .site-footer {
-        padding: 40px 0 20px;
+.site-footer {
+        padding-bottom: 100px; /* Extra room so footer content isn't covered */
     }
 
-    .footer-columns {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .footer-form {
+        padding: 20px 15px;
     }
 
-    .footer-logo img {
-        max-width: 180px;
+    .floating-contact-wrapper.left {
+        left: 15px;
+        bottom: 15px;
     }
 
-    .map-col iframe {
-        height: 220px;
-    }
-
-    .floating-contact-wrapper.right { 
-        right: 10px;
-        bottom: 15px; 
-    }
-    
-    .floating-contact-wrapper.left { 
-        left: 10px;
+    .floating-contact-wrapper.right {
+        right: 15px;
         bottom: 15px;
     }
 
     .floating-contact-btn {
-        width: 46px;
-        height: 46px;
+        width: 44px;
+        height: 44px;
     }
 }
 
