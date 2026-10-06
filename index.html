@@ -26,14 +26,39 @@
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "EZWay Business Setup Services",
-      "alternateName": ["EZWay", "EZWay Business Setup"],
-      "url": "https://www.ezwaybusinesssetupservices.com/"
-    }
-    </script>
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://www.ezwaybusinesssetupservices.com/#website",
+              "url": "https://www.ezwaybusinesssetupservices.com/",
+              "name": "EZWay Business Setup Services",
+              "alternateName": [
+                "EZWay",
+                "EZWay Business Setup"
+              ]
+            },
+            {
+              "@type": "ProfessionalService",
+              "@id": "https://www.ezwaybusinesssetupservices.com/#business",
+              "name": "EZWay Business Setup Services",
+              "url": "https://www.ezwaybusinesssetupservices.com/",
+              "logo": "https://www.ezwaybusinesssetupservices.com/assets/logo.png",
+              "image": "https://www.ezwaybusinesssetupservices.com/assets/logo.png",
+              "telephone": "+971582297398",
+              "email": "ezwaybusinesssetupservices@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Office 205 Fatma Salim Building",
+                "addressLocality": "Deira",
+                "addressRegion": "Dubai",
+                "addressCountry": "AE"
+              }
+            }
+          ]
+        }
+        </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
